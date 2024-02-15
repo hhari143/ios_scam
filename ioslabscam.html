@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Flutter app </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .code-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="container mt-5">
+  <button class="btn btn-primary mb-3" onclick="toggleCode()">.</button>
+  <button class="btn btn-success mb-3" onclick="copyCode()">get</button>
+
+  <div class="code-container">
+    <pre>
+      <code id="code">
+	  <h6>pro:1 storyboard</h6>
+        import 'package:flutter/material.dart';
+
+        void main() {
+          runApp(const MyApp());
+        }
+
+        class MyApp extends StatelessWidget {
+          const MyApp({Key? key}) : super(key: key);
+
+          @override
+          Widget build(BuildContext context) {
+            return MaterialApp(
+              title: 'Flutter Demo',
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              home: Scaffold(
+                appBar: AppBar(
+                  title: Text("STORY BOARD"),
+                  backgroundColor: Colors.blue, // Customizing app bar color
+                ),
+                body: Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(20), // Adding border radius
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          spreadRadius: 3,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // Adding shadow
+                        ),
+                      ],
+                    ),
+                    width: 300,
+                    height: 600,
+                    padding: EdgeInsets.all(20), // Adding padding
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "HI YOU SUCCESSFULLY CREATED YOUR FIRST FLUTTER PROJECT",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white, // Text color
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 20), // Adding spacing
+                        Text(
+                          "FLUTTER IS AN AWESOME FRAMEWORK FOR CROSS-PLATFORM DEVELOPMENT",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white, // Text color
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }
+        }
+		<h6>pro2: user actions</h6>
+		import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<StatefulWidget> createState() => MyHome();
+
+
+
+}
+class MyHome extends State<MyApp>{
+  var img=Image.asset("assests/images/emojilaugh.gif");
+  @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("ACTIONS AND SMILES"),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              img,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  ElevatedButton(onPressed:(){
+                    setState(() {
+                      img=Image.asset("assests/images/socool.gif");
+                    });
+                  }, child: Text("HI"))
+                  ,  ElevatedButton(onPressed:(){
+                    setState(() {
+                      img=Image.asset("assests/images/emojilaugh.gif");
+                    });
+                  }, child: Text("LAUGH")),
+                  ElevatedButton(onPressed:(){
+                    setState(() {
+                      img=Image.asset("assests/images/socool.gif");
+                    });
+                  }, child: Text("COOL"))
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+}
+<br>
+<h6>pro:3 Decision making with img</h6>
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp( MyApp());
+}
+class MyApp extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() => MyHome();
+
+
+}
+class MyHome extends State<MyApp>{
+  var val;
+  var img=Image.asset("assests/images/emojilaugh.gif");
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("DECISION MAKING"),),
+        body: Center(
+          child:Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextFormField(decoration: InputDecoration(labelText: "ENTER THE HII FOR HII IMAGE LAUGH FOR LAUGH IMAGE COOL FOR COOL IMAGE"),onChanged: (value)=>val=value,),
+              ElevatedButton(onPressed:(){
+                setState(() {
+                  if(val=="LAUGH"){
+                    img=Image.asset("assests/images/emojilaugh.gif");
+                  }
+                  if(val=="COOL"){
+                    img=Image.asset("assests/images/socool.gif");
+                  }
+                  if(val=="HII"){
+                    img=Image.asset("assests/images/higif.gif");
+
+                  }
+                });
+              } , child: Text("Change")),
+              img ,
+
+            ],
+          ),
+        ),
+      ),
+
+    );
+  }
+
+
+}
+<br>
+		<h6>pro:4 CELSIUS TO  FAHRENHEIT</h6>
+		import 'package:flutter/material.dart';
+
+void main() {
+  runApp( MyApp());
+}
+
+class MyApp extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() => MyHome();
+
+
+}
+class MyHome extends State<MyApp>{
+  var val;
+  var out="";
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("CELSIUS TO  FAHRENHEIT"),),
+        body: Center(
+          child:Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextFormField(keyboardType: TextInputType.number,
+                decoration: InputDecoration(labelText: "ENTER THE CELSIUS"),
+                onChanged: (value)=>val=value,),
+              ElevatedButton(onPressed:(){
+                setState(() {
+                  var vl=double.parse(val);
+                  vl*=1.8;
+                  vl+=32;
+                  out=vl.toString();
+                });
+              } , child: Text("Change")),
+              Text(out+" .Fahrenheit"),
+
+            ],
+          ),
+        ),
+      ),
+
+    );
+  }
+  some(){
+    out=val;
+  }
+
+}
+<h6>pro:5 passing data</h6>
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/details': (context) => DetailsScreen(),
+      },
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  TextEditingController _messageController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Screen'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: _messageController,
+              decoration: InputDecoration(
+                labelText: 'Enter your message',
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                String message = _messageController.text;
+                Navigator.pushNamed(
+                  context,
+                  '/details',
+                  arguments: message,
+                );
+              },
+              child: Text('Send Message'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    super.dispose();
+  }
+}
+
+class DetailsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final String? receivedMessage =
+        ModalRoute.of(context)?.settings.arguments as String?;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Details Screen'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Message Received:',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 10),
+            Text(
+              receivedMessage ?? 'No message',
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+<h6>pro6: animation</h6>
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(GameApp());
+}
+
+class GameApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Game Example',
+      home: GameScreen(),
+    );
+  }
+}
+
+class GameScreen extends StatefulWidget {
+  @override
+  _GameScreenState createState() => _GameScreenState();
+}
+
+class _GameScreenState extends State<GameScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+  double _positionX = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1),
+    );
+
+    _animation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(1, 0),).animate(_controller);
+
+    _controller.repeat(reverse: true);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Flutter Game'),
+      ),
+      body: GestureDetector(
+        onHorizontalDragUpdate: (details) {
+          setState(() {
+            _positionX += details.primaryDelta!;
+          });
+        },
+        child: Stack(
+          children: [
+            Positioned(
+              left: _positionX,
+              top: 200,
+              child: SlideTransition(
+                position: _animation,
+                child: GameCharacter(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+}
+
+class GameCharacter extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        shape: BoxShape.circle,
+      ),
+    );
+  }
+}
+
+		
+      </code>
+    </pre>
+  </div>
+</div>
+
+
+<script>
+  function toggleCode() {
+    const codeContainer = document.querySelector('.code-container');
+    codeContainer.style.display = (codeContainer.style.display === 'none') ? 'block' : 'none';
+  }
+
+  function copyCode() {
+    const codeElement = document.getElementById('code');
+    const codeText = codeElement.innerText;
+
+    const tempInput = document.createElement('textarea');
+    tempInput.value = codeText;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+  }
+</script>
+
+</body>
+</html>
