@@ -1,27 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Flutter app </title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .code-container {
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Demo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: white; /* Change background color to white */
+            color: black; /* Set text color to black */
+            min-height: 100vh; /* Set minimum height of body to full viewport height */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Align children vertically */
+        }
+        .navbar {
+            height: 100px;
+            width: 1800px; /* Decrease navbar height */
+            background-color: #4796F4 !important; /* Change navbar background color to the specified blue */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Add space between items */
+            align-items: center; /* Center content vertically */
+            padding: 0 20px; /* Add padding to navbar */
+        }
+        .navbar img {
+            height: 95px;
+            width: 200px;
+            margin-left: 1080px;
+            margin-right: 400px; /* Adjust image height */
+        }
+        .container {
+            margin-top: auto; /* Push container to the bottom */
+        }
+        h2 {
+            margin-bottom: 20px; /* Add spacing between header and content */
+        }
+        .btn-primary {
+            background-color: #4796F4; /* Change button background color to the specified blue */
+            border-color: #4796F4; /* Change button border color to the specified blue */
+            border-radius: 50%; /* Make button round */
+            width: 60px; /* Set button width */
+            height: 60px; /* Set button height */
+            font-size: 24px; /* Increase font size */
+            display: flex; /* Use flexbox for button content alignment */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            margin: 40px auto 0;
+            margin-left: 1100px;
+            margin-top: 30px;
+            margin-bottom: 50px; /* Adjust button's vertical position and center horizontally */
+        }
+        .btn-primary:hover {
+            background-color: #1976D2; /* Change button background color on hover */
+            border-color: #1976D2; /* Change button border color on hover */
+        }
+        .btn-secondary {
+            background-color: #FBF9FB; /* Change button background color to green */
+            border-color: #FBF9FB; /* Change button border color to green */
+            border-radius: 2px; /* Make button slightly round */
+            font-size: 18px; /* Decrease font size */
+            padding: 10px 30px; /* Add padding */
+            margin-top: 20px;
+            margin-left: 1105px; /* Add margin at the top */
+        }
+        .btn-secondary:hover {
+            background-color: #FBF9FB; /* Change button background color on hover */
+            border-color: #FBF9FB; /* Change button border color on hover */
+        }
+        .center-text {
+            color: gray; /* Set text color to gray */
+            margin-top: 20px; /* Add margin at the top */
+            text-align: center; /* Center text horizontally */
+            display: none; /* Hide the text initially */
+        }
+        .flutter-demo {
+            font-size: 36px; /* Increase font size */
+            color: #ffffff; /* Change text color to white */
+            font-weight: bold; /* Make text bold */
+            margin-left: 500px; /* Add margin to the left side of the text */
+        }
+
+    </style>
 </head>
 <body>
+    <nav class="navbar navbar-light"> <!-- Add justify-content-center to center the content -->
+        <a class="navbar-brand" style="color: white;">
+            Flutter Demo
+            <img src="debug1.PNG" alt="Logo"> <!-- Add your image source and alt text -->
+        </a> <!-- Set text color to white -->
+    </nav>
+    <div class="container">
+        <h2 style="color: gray;">You have pushed the button this many times: <span id="counter">0</span></h2> <!-- Set text color to white -->
+        <button class="btn btn-primary mb-3" onclick="copyCode()">+</button> <!-- Change button color and label -->
+        <button class="btn btn-secondary" onclick="toggleCode()"></button> <!-- Add new button to show code -->
+        <div class="center-text" id="text">
+            <!-- Your text goes here -->
+            <pre>
+              <code>
 
-
-<div class="container mt-5">
-  <button class="btn btn-primary mb-3" onclick="toggleCode()">.</button>
-  <button class="btn btn-success mb-3" onclick="copyCode()">get</button>
-
-  <div class="code-container">
-    <pre>
-      <code id="code">
-	  <h6>pro:1 storyboard</h6>
+      pro:1 storyboard
         import 'package:flutter/material.dart';
 
         void main() {
@@ -90,384 +169,417 @@
             );
           }
         }
-		<h6>pro2: user actions</h6>
-		import 'package:flutter/material.dart';
+        pro:2 user actions
+        import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+        void main() {
+          runApp(const MyApp());
+        }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+        class MyApp extends StatelessWidget {
+          const MyApp({Key? key}) : super(key: key);
 
-  @override
-  State<StatefulWidget> createState() => MyHome();
-
-
-
-}
-class MyHome extends State<MyApp>{
-  var img=Image.asset("assests/images/emojilaugh.gif");
-  @override
-  Widget build(BuildContext context) {
-
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("ACTIONS AND SMILES"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              img,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  ElevatedButton(onPressed:(){
-                    setState(() {
-                      img=Image.asset("assests/images/socool.gif");
-                    });
-                  }, child: Text("HI"))
-                  ,  ElevatedButton(onPressed:(){
-                    setState(() {
-                      img=Image.asset("assests/images/emojilaugh.gif");
-                    });
-                  }, child: Text("LAUGH")),
-                  ElevatedButton(onPressed:(){
-                    setState(() {
-                      img=Image.asset("assests/images/socool.gif");
-                    });
-                  }, child: Text("COOL"))
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-}
-<br>
-<h6>pro:3 Decision making with img</h6>
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp( MyApp());
-}
-class MyApp extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() => MyHome();
-
-
-}
-class MyHome extends State<MyApp>{
-  var val;
-  var img=Image.asset("assests/images/emojilaugh.gif");
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("DECISION MAKING"),),
-        body: Center(
-          child:Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TextFormField(decoration: InputDecoration(labelText: "ENTER THE HII FOR HII IMAGE LAUGH FOR LAUGH IMAGE COOL FOR COOL IMAGE"),onChanged: (value)=>val=value,),
-              ElevatedButton(onPressed:(){
-                setState(() {
-                  if(val=="LAUGH"){
-                    img=Image.asset("assests/images/emojilaugh.gif");
-                  }
-                  if(val=="COOL"){
-                    img=Image.asset("assests/images/socool.gif");
-                  }
-                  if(val=="HII"){
-                    img=Image.asset("assests/images/higif.gif");
-
-                  }
-                });
-              } , child: Text("Change")),
-              img ,
-
-            ],
-          ),
-        ),
-      ),
-
-    );
-  }
-
-
-}
-<br>
-		<h6>pro:4 CELSIUS TO  FAHRENHEIT</h6>
-		import 'package:flutter/material.dart';
-
-void main() {
-  runApp( MyApp());
-}
-
-class MyApp extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() => MyHome();
-
-
-}
-class MyHome extends State<MyApp>{
-  var val;
-  var out="";
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("CELSIUS TO  FAHRENHEIT"),),
-        body: Center(
-          child:Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TextFormField(keyboardType: TextInputType.number,
-                decoration: InputDecoration(labelText: "ENTER THE CELSIUS"),
-                onChanged: (value)=>val=value,),
-              ElevatedButton(onPressed:(){
-                setState(() {
-                  var vl=double.parse(val);
-                  vl*=1.8;
-                  vl+=32;
-                  out=vl.toString();
-                });
-              } , child: Text("Change")),
-              Text(out+" .Fahrenheit"),
-
-            ],
-          ),
-        ),
-      ),
-
-    );
-  }
-  some(){
-    out=val;
-  }
-
-}
-<h6>pro:5 passing data</h6>
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => HomeScreen(),
-        '/details': (context) => DetailsScreen(),
-      },
-    );
-  }
-}
-
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  TextEditingController _messageController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Screen'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _messageController,
-              decoration: InputDecoration(
-                labelText: 'Enter your message',
+          @override
+          Widget build(BuildContext context) {
+            return MaterialApp(
+              title: 'Flutter Demo',
+              home: Scaffold(
+                appBar: AppBar(
+                  title: const Text('Flutter Demo'),
+                ),
+                body: const Center(
+                  child: MyStatelessWidget(),
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                String message = _messageController.text;
-                Navigator.pushNamed(
-                  context,
-                  '/details',
-                  arguments: message,
-                );
+            );
+          }
+        }
+
+        class MyStatelessWidget extends StatelessWidget {
+          const MyStatelessWidget({Key? key}) : super(key: key);
+
+          @override
+          Widget build(BuildContext context) {
+            return GestureDetector(
+              onTap: () {
+                print('MyButton was tapped!');
               },
-              child: Text('Send Message'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _messageController.dispose();
-    super.dispose();
-  }
-}
-
-class DetailsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final String? receivedMessage =
-        ModalRoute.of(context)?.settings.arguments as String?;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Details Screen'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Message Received:',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(height: 10),
-            Text(
-              receivedMessage ?? 'No message',
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-<h6>pro6: animation</h6>
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(GameApp());
-}
-
-class GameApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Game Example',
-      home: GameScreen(),
-    );
-  }
-}
-
-class GameScreen extends StatefulWidget {
-  @override
-  _GameScreenState createState() => _GameScreenState();
-}
-
-class _GameScreenState extends State<GameScreen>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Offset> _animation;
-  double _positionX = 0.0;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 1),
-    );
-
-    _animation = Tween<Offset>(
-      begin: Offset(0, 0),
-      end: Offset(1, 0),).animate(_controller);
-
-    _controller.repeat(reverse: true);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter Game'),
-      ),
-      body: GestureDetector(
-        onHorizontalDragUpdate: (details) {
-          setState(() {
-            _positionX += details.primaryDelta!;
-          });
-        },
-        child: Stack(
-          children: [
-            Positioned(
-              left: _positionX,
-              top: 200,
-              child: SlideTransition(
-                position: _animation,
-                child: GameCharacter(),
+              child: Container(
+                height: 36.0,
+                width: 200.0,
+                color: Colors.blue,
+                child: const Center(
+                  child: Text(
+                    'Tap me',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+            );
+          }
+        }
+        pro:3 Decision making with img
+        import 'package:flutter/material.dart';
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-}
+        void main() {
+          runApp(MyApp());
+        }
 
-class GameCharacter extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        shape: BoxShape.circle,
-      ),
-    );
-  }
-}
+        class MyApp extends StatelessWidget {
+          @override
+          Widget build(BuildContext context) {
+            return MaterialApp(
+              title: 'Flutter Demo',
+              home: MyHomePage(),
+            );
+          }
+        }
 
-		
-      </code>
-    </pre>
-  </div>
-</div>
+        class MyHomePage extends StatefulWidget {
+          @override
+          _MyHomePageState createState() => _MyHomePageState();
+        }
 
+        class _MyHomePageState extends State<MyHomePage> {
+          int _counter = 0;
 
-<script>
-  function toggleCode() {
-    const codeContainer = document.querySelector('.code-container');
-    codeContainer.style.display = (codeContainer.style.display === 'none') ? 'block' : 'none';
-  }
+          void _incrementCounter() {
+            setState(() {
+              _counter++;
+            });
+          }
 
-  function copyCode() {
-    const codeElement = document.getElementById('code');
-    const codeText = codeElement.innerText;
+          @override
+          Widget build(BuildContext context) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text('Flutter Demo'),
+              ),
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'You have pushed the button this many times:',
+                    ),
+                    Text(
+                      '$_counter',
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                  ],
+                ),
+              ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: _incrementCounter,
+                tooltip: 'Increment',
+                child: Icon(Icons.add),
+              ),
+            );
+          }
+        }
+        pro:4 CELSIUS TO FAHRENHEIT
+        import 'package:flutter/material.dart';
 
-    const tempInput = document.createElement('textarea');
-    tempInput.value = codeText;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
-  }
-</script>
+        void main() {
+          runApp(MyApp());
+        }
 
+        class MyApp extends StatelessWidget {
+          @override
+          Widget build(BuildContext context) {
+            return MaterialApp(
+              title: 'Flutter Demo',
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              home: MyHomePage(),
+            );
+          }
+        }
+
+        class MyHomePage extends StatefulWidget {
+          MyHomePage({Key? key}) : super(key: key);
+
+          @override
+          _MyHomePageState createState() => _MyHomePageState();
+        }
+
+        class _MyHomePageState extends State<MyHomePage> {
+          late TextEditingController _controller;
+
+          @override
+          void initState() {
+            super.initState();
+            _controller = TextEditingController();
+          }
+
+          @override
+          Widget build(BuildContext context) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text('Celsius to Fahrenheit'),
+              ),
+              body: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    TextField(
+                      controller: _controller,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: 'Enter the temperature in Celsius',
+                      ),
+                    ),
+                    SizedBox(height: 20.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        double celsius = double.tryParse(_controller.text) ?? 0.0;
+                        double fahrenheit = (celsius * 9 / 5) + 32;
+                        String result = '$celsius°C is $fahrenheit°F.';
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text('Result'),
+                            content: Text(result),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      child: Text('Convert'),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+
+          @override
+          void dispose() {
+            _controller.dispose();
+            super.dispose();
+          }
+        }
+        pro:5 passing data
+        import 'package:flutter/material.dart';
+
+        void main() {
+          runApp(MyApp());
+        }
+
+        class MyApp extends StatelessWidget {
+          @override
+          Widget build(BuildContext context) {
+            return MaterialApp(
+              title: 'Flutter Demo',
+              initialRoute: '/',
+              routes: {
+                '/': (context) => HomeScreen(),
+                '/details': (context) => DetailsScreen(),
+              },
+            );
+          }
+        }
+
+        class HomeScreen extends StatefulWidget {
+          @override
+          _HomeScreenState createState() => _HomeScreenState();
+        }
+
+        class _HomeScreenState extends State<HomeScreen> {
+          TextEditingController _messageController = TextEditingController();
+
+          @override
+          Widget build(BuildContext context) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text('Home Screen'),
+              ),
+              body: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextField(
+                      controller: _messageController,
+                      decoration: InputDecoration(
+                        labelText: 'Enter your message',
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        String message = _messageController.text;
+                        Navigator.pushNamed(
+                          context,
+                          '/details',
+                          arguments: message,
+                        );
+                      },
+                      child: Text('Send Message'),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+
+          @override
+          void dispose() {
+            _messageController.dispose();
+            super.dispose();
+          }
+        }
+
+        class DetailsScreen extends StatelessWidget {
+          @override
+          Widget build(BuildContext context) {
+            final String? receivedMessage =
+                ModalRoute.of(context)?.settings.arguments as String?;
+
+            return Scaffold(
+              appBar: AppBar(
+                title: Text('Details Screen'),
+              ),
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Message Received:',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      receivedMessage ?? 'No message',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+        }
+        pro:6 animation
+        import 'package:flutter/material.dart';
+
+        void main() {
+          runApp(GameApp());
+        }
+
+        class GameApp extends StatelessWidget {
+          @override
+          Widget build(BuildContext context) {
+            return MaterialApp(
+              title: 'Flutter Game Example',
+              home: GameScreen(),
+            );
+          }
+        }
+
+        class GameScreen extends StatefulWidget {
+          @override
+          _GameScreenState createState() => _GameScreenState();
+        }
+
+        class _GameScreenState extends State<GameScreen>
+            with SingleTickerProviderStateMixin {
+          late AnimationController _controller;
+          late Animation _animation;
+          double _positionX = 0.0;
+
+          @override
+          void initState() {
+            super.initState();
+            _controller = AnimationController(
+              vsync: this,
+              duration: Duration(seconds: 1),
+            );
+
+            _animation = Tween(
+              begin: Offset(0, 0),
+              end: Offset(1, 0),
+            ).animate(_controller);
+
+            _controller.repeat(reverse: true);
+          }
+
+          @override
+          Widget build(BuildContext context) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text('Flutter Game'),
+              ),
+              body: GestureDetector(
+                onHorizontalDragUpdate: (details) {
+                  setState(() {
+                    _positionX += details.primaryDelta!;
+                  });
+                },
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: _positionX,
+                      top: 200,
+                      child: SlideTransition(
+                        position: _animation,
+                        child: GameCharacter(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+
+          @override
+          void dispose() {
+            _controller.dispose();
+            super.dispose();
+          }
+        }
+
+        class GameCharacter extends StatelessWidget {
+          @override
+          Widget build(BuildContext context) {
+            return Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                shape: BoxShape.circle,
+              ),
+            );
+          }
+        }
+              </code>
+            </pre>
+        </div>
+    </div>
+    <script>
+        function copyCode() {
+            const textElement = document.getElementById('text');
+            const codeText = textElement.innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+        }
+
+        function toggleCode() {
+            const textElement = document.getElementById('text');
+            textElement.style.display = (textElement.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
 </body>
 </html>
